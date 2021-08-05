@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1628174536 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/main.cpp
+	<iostream>
+	<vector>
+	<stdlib.h>
+	<time.h>
+	"Carta.h"
+	"Mensajes.h"
+	"mazo.h"
+	"Funciones_incompletas.h"
+
+1628171751 /home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Carta.h
+	<iostream>
+	<vector>
+	<string>
+
+1628171803 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Carta.cpp
+	"Carta.h"
+
+1628172128 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/delay.cpp
+	"delay.h"
+
+1628172139 /home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/delay.h
+	<time.h>
+
+1628172315 /home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Mensajes.h
+	<iostream>
+
+1628172280 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Mensajes.cpp
+	"Mensajes.h"
+	"delay.h"
+
+1628172630 /home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/mazo.h
+	<vector>
+	<stdlib.h>
+	"Carta.h"
+
+1628172898 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Apostar.cpp
+	"Funciones_incompletas.h"
+
+1628174519 /home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Funciones_incompletas.h
+	<iostream>
+	<vector>
+	"Carta.h"
+
+1628172948 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Mezclar_Mazo.cpp
+	"Funciones_incompletas.h"
+
+1628174328 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Responder.cpp
+	"Funciones_incompletas.h"
+
+1628174485 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Comparar_cartas.cpp
+	"Funciones_incompletas.h"
+
+1628174401 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Subir_apuesta.cpp
+	"Funciones_incompletas.h"
+
