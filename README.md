@@ -1,5 +1,5 @@
 # Trabajo Práctico N°4: Poker
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
+
 ### Consigna:
 Vamos a programar un juego basado en una de lasformas del famoso juego de cartas póquer llamado“póquer tapado”. Para ello cuentan con una plantilla que posee algunas funcionalidades del juego ya programadas para facilitarles las decisiones de diseñodel juego. La idea es que solamente escriban lasfunciones que se detallan a continuación, sin modificarel resto de la plantilla:
 - `mezclar_mazo:` debe modificar la instancia delmazo recibida para que las cartas no se encuentrenen el orden inicial. Para esto pueden usar la funciónindice_aleatorioque devuelve un índice del mazo alazar.
