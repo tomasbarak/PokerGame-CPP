@@ -55,3 +55,59 @@
 1628174401 source:/home/alumno/Documentos/vfhnalfbvijadfv/PokerGame-CPP/Subir_apuesta.cpp
 	"Funciones_incompletas.h"
 
+1628175722 source:/home/barak/Escritorio/PokerGame-CPP/main.cpp
+	<iostream>
+	<vector>
+	<stdlib.h>
+	<time.h>
+	"Carta.h"
+	"Mensajes.h"
+	"mazo.h"
+	"Funciones_incompletas.h"
+
+1628175177 /home/barak/Escritorio/PokerGame-CPP/Carta.h
+	<iostream>
+	<vector>
+	<string>
+
+1628175177 /home/barak/Escritorio/PokerGame-CPP/Mensajes.h
+	<iostream>
+
+1628175924 /home/barak/Escritorio/PokerGame-CPP/mazo.h
+
+1628175177 /home/barak/Escritorio/PokerGame-CPP/Funciones_incompletas.h
+	<iostream>
+	<vector>
+	"Carta.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Apostar.cpp
+	"Funciones_incompletas.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Carta.cpp
+	"Carta.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Comparar_cartas.cpp
+	"Funciones_incompletas.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/delay.cpp
+	"delay.h"
+
+1628175177 /home/barak/Escritorio/PokerGame-CPP/delay.h
+	<time.h>
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Mensajes.cpp
+	"Mensajes.h"
+	"delay.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Mezclar_Mazo.cpp
+	"Funciones_incompletas.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Responder.cpp
+	"Funciones_incompletas.h"
+
+1628175177 source:/home/barak/Escritorio/PokerGame-CPP/Subir_apuesta.cpp
+	"Funciones_incompletas.h"
+
+1628175906 source:/home/barak/Escritorio/PokerGame-CPP/mazo.cpp
+	"mazo.h"
+
