@@ -2,19 +2,19 @@
 
 ### Consigna:
 Vamos a programar un juego basado en una de lasformas del famoso juego de cartas póquer llamado“poker tapado”. Para ello cuentan con una plantilla que posee algunas funcionalidades del juego ya programadas para facilitarles las decisiones de diseñodel juego. La idea es que solamente escriban lasfunciones que se detallan a continuación, sin modificarel resto de la plantilla:
-- `mezclar_mazo:` debe modificar la instancia delmazo recibida para que las cartas no se encuentrenen el orden inicial. Para esto pueden usar la funciónindice_aleatorioque devuelve un índice del mazo alazar.
-- `apostar:` debe mostrarle al usuario la mano ypreguntarle cuántas fichas desea apostar. Lafunción debe comprobar que la cantidad ingresadapor el usuario no supera la cantidad de fichas deljugador.
-- `responder:` idem apostar(), pero ademáscomprueba que la cantidad ingresada sea igual osuperior a la del contrincante.
-- `subir_apuesta:` similar a responder() pero no sevuelve a mostrar la mano y se tiene que mostrarcuántas fichas apostaron ambos jugadores hastaese momento.
+- `mezclar_mazo:` debe modificar la instancia del mazo recibida para que las cartas no se encuentren en el orden inicial. Para esto pueden usar la función indice_aleatorio que devuelve un índice del mazo alazar.
+- `apostar:` debe mostrarle al usuario la mano y preguntarle cuántas fichas desea apostar. La función debe comprobar que la cantidad ingresada por el usuario no supera la cantidad de fichas del jugador.
+- `responder:` idem apostar(), pero además comprueba que la cantidad ingresada sea igual osuperior a la del contrincante.
+- `subir_apuesta:` similar a responder() pero no sevuelve a mostrar la mano y se tiene que mostrar cuántas fichas apostaron ambos jugadores hasta ese momento.
 - `comparar_cartas:` recibe 2 manos y devuelve trueen caso de que gane la primera mano y false sigana la segunda. El orden de los juegos para saber quien gana una mano está establecido en el reglamento. 
 ### Reglamento:
-Cada mano consta de 5 cartas. Cada carta tiene unpalo y un “número” (algunas son letras: A,J,Q,K) alquellamamos valor. Los posibles juegos que podemosarmar son los siguientes, en orden:
+Cada mano consta de 5 cartas. Cada carta tiene unpalo y un “número” (algunas son letras: A,J,Q,K) al que llamamos valor. Los posibles juegos que podemos armar son los siguientes, en orden:
 - `Par:` si hay 2 cartas del mismo valor.
 - `Tris:` si hay 3 cartas del mismo valor.
-- `Escalera:` si los números de las 5 cartas sonconsecutivos.
+- `Escalera:` si los números de las 5 cartas son consecutivos.
 - `Color:` si hay 5 cartas del mismo palo.
 - `Poker:` si hay 4 cartas del mismo valor.
-- `Escalera real:` si la mano es una escalera y ademástodas las cartas tienen el mismo palo.
+- `Escalera real:` si la mano es una escalera y además todas las cartas tienen el mismo palo.
 
   En los casos de los pares, tries y escaleras el desempate se produce por el valor de las cartas (en el caso de la escalera el valor de la carta más alta).El orden de los valores es: A ,2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K 
   
