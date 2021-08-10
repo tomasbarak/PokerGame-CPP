@@ -32,7 +32,23 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Apostar.cpp" />
+		<Unit filename="Carta.cpp" />
+		<Unit filename="Carta.h" />
+		<Unit filename="Comparar_cartas.cpp" />
+		<Unit filename="Funciones_incompletas.h" />
+		<Unit filename="Mensajes.cpp" />
+		<Unit filename="Mensajes.h" />
+		<Unit filename="Mezclar_Mazo.cpp" />
+		<Unit filename="Responder.cpp" />
+		<Unit filename="Subir_apuesta.cpp" />
+		<Unit filename="delay.cpp" />
+		<Unit filename="delay.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mazo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mazo.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
