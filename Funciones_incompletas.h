@@ -11,7 +11,7 @@ int apostar(std::vector<carta> mano, int& cant_fichas, int& pozo);
 
 int responder(std::vector<carta> mano, int apuesta_contrincante, int& cant_fichas, int& pozo);
 
-int subir_apuesta(int& apuesta, int apuesta_contrincante, int& cant_fichas, int& pozo);
+int subir_apuesta(int& apuesta, int apuesta_contrincante, int& cant_fichas, int& pozo, int jugador);
 
 bool comparar_cartas(std::vector<carta> mano_j1, std::vector<carta> mano_j2);
 

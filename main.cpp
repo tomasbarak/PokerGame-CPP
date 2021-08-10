@@ -68,11 +68,11 @@ int main() {
 
         while (apuesta_j1 != apuesta_j2){
             if (responde_j1){
-                subir_apuesta(apuesta_j1, apuesta_j2, cant_fichas_j1, pozo);
+                subir_apuesta(apuesta_j1, apuesta_j2, cant_fichas_j1, pozo, 1);
                 responde_j1 = false;
             }
             else {
-                subir_apuesta(apuesta_j2, apuesta_j1, cant_fichas_j2 , pozo);
+                subir_apuesta(apuesta_j2, apuesta_j1, cant_fichas_j2 , pozo, 2);
                 responde_j1 = true;
             }
         }
