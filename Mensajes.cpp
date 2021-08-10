@@ -2,7 +2,7 @@
 #include "delay.h"
 
 void mostrar_mensaje_bienvenida(){
-    std::cout << "Bienvenidos al poquer tapado de 2°CSTC" << std::endl;
+    std::cout << "Bienvenidos al poker tapado de 2°CSTC" << std::endl;
     std::cout << "Cada jugador cuenta con 15 fichas para jugar, el juego se termina cuando uno se queda sin fichas" << std::endl;
     std::cout << "Buena suerte y que gane el mejor!" << std::endl;
     delay(5);

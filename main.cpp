@@ -22,6 +22,9 @@ std::vector<carta> crear_mazo(){
             mazo.push_back(c);
         }
     }
+    /*for(int i = 0; i < mazo.size(); i++){
+        cout << mazo[i].visible << endl;
+    }*/
     return mazo;
 }
 
