@@ -4,7 +4,7 @@
 Vamos a programar un juego basado en una de lasformas del famoso juego de cartas póquer llamado“poker tapado”. Para ello cuentan con una plantilla que posee algunas funcionalidades del juego ya programadas para facilitarles las decisiones de diseñodel juego. La idea es que solamente escriban lasfunciones que se detallan a continuación, sin modificarel resto de la plantilla:
 - `mezclar_mazo:` debe modificar la instancia delmazo recibida para que las cartas no se encuentrenen el orden inicial. Para esto pueden usar la funciónindice_aleatorioque devuelve un índice del mazo alazar.
 - `apostar:` debe mostrarle al usuario la mano ypreguntarle cuántas fichas desea apostar. Lafunción debe comprobar que la cantidad ingresadapor el usuario no supera la cantidad de fichas deljugador.
-- `responder:` idem apostar(), pero ademáscomprueba que la cantidad ingresada sea igual osuperior a la del contrincante.
+- `responder:` idem apostar(), pero además comprueba que la cantidad ingresada sea igual osuperior a la del contrincante.
 - `subir_apuesta:` similar a responder() pero no sevuelve a mostrar la mano y se tiene que mostrarcuántas fichas apostaron ambos jugadores hastaese momento.
 - `comparar_cartas:` recibe 2 manos y devuelve trueen caso de que gane la primera mano y false sigana la segunda. El orden de los juegos para saber quien gana una mano está establecido en el reglamento. 
 ### Reglamento:
