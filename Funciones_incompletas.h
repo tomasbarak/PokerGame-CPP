@@ -5,6 +5,10 @@
 #include <vector>
 #include "Carta.h"
 
+void ordenar_vector(std::vector<int>& v);
+
+int revisar_jugadas(std::vector<int>& v, Jugadas j, std::vector<int>& p, std::vector<carta> mano);
+
 void mezclar_mazo(std::vector<carta>& mazo);
 
 int apostar(std::vector<carta> mano, int& cant_fichas, int& pozo);

@@ -84,7 +84,7 @@ int main() {
         }
         else{
             cant_fichas_j2 += pozo;
-            mostrar_mensaje_ganador_mano(2, cant_fichas_j1);
+            mostrar_mensaje_ganador_mano(2, cant_fichas_j2);
         }
     }
     mostrar_ganador_partida(cant_fichas_j1, cant_fichas_j2);
