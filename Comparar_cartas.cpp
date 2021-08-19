@@ -51,6 +51,13 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
                         if (contador == 4)
                             return 1;
 
+                    } else if (v[i] == 13 && v[i+1] == 1 && mano[i].palo == mano[i+1].palo) {
+                        if (contador == 0)
+                            inicio = i;
+                        contador++;
+                        if (contador == 4)
+                            return 1;
+
                     }
                 }
                 vuelta = true;
@@ -79,6 +86,14 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
                         return 0;
 
                     if (v[i + 1] == v[i] + 1) {
+                        if (contador == 0)
+                            inicio = i;
+                        contador++;
+                        if (contador == 4)
+                            return 1;
+
+                    }
+                    else if (v[i] == 13 && v[i+1] == 1) {
                         if (contador == 0)
                             inicio = i;
                         contador++;
