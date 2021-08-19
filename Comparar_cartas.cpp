@@ -89,6 +89,44 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
             return 0;
         }
 
+    case Jugadas::Color:
+        {
+            vector<int> cantidades_palos = { 0, 0, 0, 0 };
+            for (int i = 0; i < mano.size(); i++)
+            {
+                switch (mano[i].palo)
+                {
+                case 0:
+                    cantidades_palos[0]++;
+                    break;
+
+                case 1:
+                    cantidades_palos[1]++;
+                    break;
+
+                case 2:
+                    cantidades_palos[2]++;
+                    break;
+
+                case 3:
+                    cantidades_palos[3]++;
+                    break;
+
+                default:
+                    cout << "Hubo un error al encontrar el palo de la carta " << i << endl;
+                }
+            }
+
+            for (int j = 0; j < cantidades_palos.size(); j++)
+            {
+                if (j[i] == 5) {
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+
     case Jugadas::Escalera:
         {
             int contador = 0, inicio = 0;
@@ -126,6 +164,25 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
             return 1;
         }
 
+    case Jugadas::Trio:
+        {
+            int valor_contado = 0;
+            for (int i = 0; i < v.size(); i++)
+            {
+                valor_contado = v[i];
+
+                if (v[i+1] == valor_contado && v[i+2] == valor_contado) {
+                    p.push_back(i);
+                    p.push_back(i + 1);
+                    p.push_back(i + 2);
+
+                    return 1;
+
+                }
+            }
+
+            return 0;
+        }
     }
 }
 
