@@ -17,12 +17,69 @@ bool comparar_cartas(vector<carta> mano_j1, vector<carta> mano_j2) {
     ordenar_vector(valores_j1);
     ordenar_vector(valores_j2);
 
-    vector<int> pu_j1(5, 0);
+    vector<int> pu_j1 = {};
+    vector<int> pu_j2 = {};
 
+    // Jugadas Jugador 1
     jugadas[0][5] = revisar_jugadas(valores_j1, Jugadas::EscColor, pu_j1, mano_j1);
     jugadas[0][4] = revisar_jugadas(valores_j1, Jugadas::Poker, pu_j1, mano_j1);
+    jugadas[0][3] = revisar_jugadas(valores_j1, Jugadas::Color, pu_j1, mano_j1);
+    jugadas[0][2] = revisar_jugadas(valores_j1, Jugadas::Escalera, pu_j1, mano_j1);
+    jugadas[0][1] = revisar_jugadas(valores_j1, Jugadas::Trio, pu_j1, mano_j1);
+    jugadas[0][0] = revisar_jugadas(valores_j1, Jugadas::Par, pu_j1, mano_j1);
 
-    cout << jugadas[0][4] << endl;
+    jugadas[1][5] = revisar_jugadas(valores_j2, Jugadas::EscColor, pu_j2, mano_j2);
+    jugadas[1][4] = revisar_jugadas(valores_j2, Jugadas::Poker, pu_j2, mano_j2);
+    jugadas[1][3] = revisar_jugadas(valores_j2, Jugadas::Color, pu_j2, mano_j2);
+    jugadas[1][2] = revisar_jugadas(valores_j2, Jugadas::Escalera, pu_j2, mano_j2);
+    jugadas[1][1] = revisar_jugadas(valores_j2, Jugadas::Trio, pu_j2, mano_j2);
+    jugadas[1][0] = revisar_jugadas(valores_j2, Jugadas::Par, pu_j2, mano_j2);
+
+    for (int i = 0; i < jugadas.size(); i++)
+    {
+        cout << "Jugador " << i+1 << ":" << endl;
+        for (int j = 0; j < jugadas[0].size(); j++)
+        {
+            cout << jugadas[i][j] << " ";
+        }
+        cout << endl << endl;
+    }
+
+    for (int i = jugadas[0].size()-1; i > 0; i--)
+    {
+        if (jugadas[0][i] > jugadas[1][i])
+            return true;
+
+        else if (jugadas[0][i] < jugadas[1][i])
+            return true;
+
+        else if (jugadas[0][i] == jugadas[1][i]) {
+            if (pu_j1.size() == 0 && pu_j2.size() == 0) {
+                if (valores_j1[valores_j1.size()-1] > valores_j2[valores_j2.size()-1])
+                    return true;
+
+                else if (valores_j1[valores_j1.size()-1] < valores_j2[valores_j2.size()-1])
+                    return false;
+
+            }
+
+            if (mano_j1[pu_j1[0]].valor > mano_j2[pu_j2[0]].valor)
+                return true;
+
+            else if (mano_j1[pu_j1[0]].valor < mano_j2[pu_j2[0]].valor)
+                return false;
+
+            else if (mano_j1[pu_j1[0]].valor == mano_j2[pu_j2[0]].valor) {
+                if (mano_j1[pu_j1[0]].palo < mano_j2[pu_j2[0]].palo)
+                    return true;
+
+                else if (mano_j1[pu_j1[0]].palo > mano_j2[pu_j2[0]].palo)
+                    return false;
+
+            }
+
+        }
+    }
 
     return true;
 }
@@ -49,15 +106,27 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
                         if (contador == 0)
                             inicio = i;
                         contador++;
-                        if (contador == 4)
+                        if (contador == 4) {
+                            for (int j = 0; j < v.size(); j++)
+                            {
+                                p.push_back(j);
+                            }
                             return 1;
+
+                        }
 
                     } else if (v[i] == 13 && v[i+1] == 1 && mano[i].palo == mano[i+1].palo) {
                         if (contador == 0)
                             inicio = i;
                         contador++;
-                        if (contador == 4)
+                        if (contador == 4) {
+                            for (int j = 0; j < v.size(); j++)
+                            {
+                                p.push_back(j);
+                            }
                             return 1;
+
+                        }
 
                     }
                 }
@@ -92,24 +161,29 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
     case Jugadas::Color:
         {
             vector<int> cantidades_palos = { 0, 0, 0, 0 };
+            vector<vector<int>> posiciones_utilizadas = { {}, {}, {}, {} };;
             for (int i = 0; i < mano.size(); i++)
             {
                 switch (mano[i].palo)
                 {
                 case 0:
                     cantidades_palos[0]++;
+                    posiciones_utilizadas[0].push_back(i);
                     break;
 
                 case 1:
                     cantidades_palos[1]++;
+                    posiciones_utilizadas[1].push_back(i);
                     break;
 
                 case 2:
                     cantidades_palos[2]++;
+                    posiciones_utilizadas[2].push_back(i);
                     break;
 
                 case 3:
                     cantidades_palos[3]++;
+                    posiciones_utilizadas[3].push_back(i);
                     break;
 
                 default:
@@ -119,9 +193,17 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
 
             for (int j = 0; j < cantidades_palos.size(); j++)
             {
-                if (j[i] == 5) {
+                if (cantidades_palos[j] == 5) {
+                    for (int g = 0; g < posiciones_utilizadas[j].size(); g++)
+                    {
+                        p.push_back(posiciones_utilizadas[j][g]);
+                    }
+
                     return 1;
+
                 }
+
+
             }
 
             return 0;
@@ -129,6 +211,9 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
 
     case Jugadas::Escalera:
         {
+            if (p.size() != 0)
+                return 0;
+
             int contador = 0, inicio = 0;
             bool vuelta = false;
             while (true)
@@ -145,16 +230,28 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
                         if (contador == 0)
                             inicio = i;
                         contador++;
-                        if (contador == 4)
+                        if (contador == 4) {
+                            for (int j = 0; j < v.size(); j++)
+                            {
+                                p.push_back(j);
+                            }
                             return 1;
+
+                        }
 
                     }
                     else if (v[i] == 13 && v[i+1] == 1) {
                         if (contador == 0)
                             inicio = i;
                         contador++;
-                        if (contador == 4)
+                        if (contador == 4) {
+                            for (int j = 0; j < v.size(); j++)
+                            {
+                                p.push_back(j);
+                            }
                             return 1;
+
+                        }
 
                     }
                 }
@@ -167,21 +264,75 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
     case Jugadas::Trio:
         {
             int valor_contado = 0;
-            for (int i = 0; i < v.size(); i++)
+            bool utilizado;
+            for (int i = 0; i < v.size()-2; i++)
             {
+                utilizado = false;
                 valor_contado = v[i];
 
                 if (v[i+1] == valor_contado && v[i+2] == valor_contado) {
-                    p.push_back(i);
-                    p.push_back(i + 1);
-                    p.push_back(i + 2);
+                    if (p.size() != 0) {
+                        for (int j = 0; j < p.size(); j++)
+                        {
+                            if (p[j] == i || p[j] == i+1 || p[j] == i+2) {
+                                utilizado = true;
+                                break;
 
-                    return 1;
+                            }
+                        }
 
+                    }
+
+
+                    if (!utilizado) {
+                        p.push_back(i);
+                        p.push_back(i + 1);
+                        p.push_back(i + 2);
+
+                        return 1;
+
+                    }
                 }
             }
 
             return 0;
+        }
+
+    case Jugadas::Par:
+        {
+            int cantidad_pares = 0;
+            int valor_contado = 0;
+            bool utilizado;
+            for (int i = 0; i < v.size()-1; i++)
+            {
+                utilizado = false;
+                valor_contado = v[i];
+
+                if (v[i+1] == valor_contado) {
+                    if (p.size() != 0) {
+                        for (int j = 0; j < p.size(); j++)
+                        {
+
+                            if (p[j] == i || p[j] == i+1) {
+                                utilizado = true;;
+                                break;
+                            }
+                        }
+                    }
+
+
+
+                    if (!utilizado) {
+                        p.push_back(i);
+                        p.push_back(i+1);
+
+                        cantidad_pares++;
+
+                    }
+                }
+            }
+
+            return cantidad_pares;
         }
     }
 }
