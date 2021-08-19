@@ -61,7 +61,11 @@ bool comparar_cartas(vector<carta> mano_j1, vector<carta> mano_j2) {
                 else if (valores_j1[valores_j1.size()-1] < valores_j2[valores_j2.size()-1])
                     return false;
 
-            }
+            } else if (pu_j1.size() == 0)
+                return false;
+
+            else if (pu_j2.size() == 0)
+                return true;
 
             if (mano_j1[pu_j1[0]].valor > mano_j2[pu_j2[0]].valor)
                 return true;
