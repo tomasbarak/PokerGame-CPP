@@ -20,8 +20,9 @@ bool comparar_cartas(vector<carta> mano_j1, vector<carta> mano_j2) {
     vector<int> pu_j1(5, 0);
 
     jugadas[0][5] = revisar_jugadas(valores_j1, Jugadas::EscColor, pu_j1, mano_j1);
+    jugadas[0][4] = revisar_jugadas(valores_j1, Jugadas::Poker, pu_j1, mano_j1);
 
-    cout << jugadas[0][5] << endl;
+    cout << jugadas[0][4] << endl;
 
     return true;
 }
@@ -68,7 +69,24 @@ int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> man
 
     case Jugadas::Poker:
         {
+            int valor_contado = 0;
+            for (int i = 0; i < v.size(); i++)
+            {
+                valor_contado = v[i];
 
+                if (v[i+1] == valor_contado && v[i+2] == valor_contado && v[i+3] == valor_contado) {
+                    // Las cuatro cartas utilizadas
+                    p.push_back(i);
+                    p.push_back(i+1);
+                    p.push_back(i+2);
+                    p.push_back(i+3);
+
+                    return 1;   // Solo puede haber un poker por mano
+
+                }
+            }
+
+            return 0;
         }
 
     case Jugadas::Escalera:
