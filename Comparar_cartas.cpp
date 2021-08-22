@@ -45,47 +45,47 @@ bool comparar_cartas(vector<carta> mano_j1, vector<carta> mano_j2) {
         cout << endl << endl;
     }
 
-    for (int i = jugadas[0].size()-1; i > 0; i--)
+    // Pasa por todos los valores del ultimo al primero
+    for (int i = jugadas[0].size()-1; i >= 0; i--)
     {
+        // Si el jugador 1 tiene una jugada de ese valor, pero no el jugador 2
         if (jugadas[0][i] > jugadas[1][i])
             return true;
 
+        // Si el jugador 2 tiene una jugada de ese valor, pero no el jugador 1
         else if (jugadas[0][i] < jugadas[1][i])
-            return true;
+            return false;
 
+        // Si ambos jugadores tienen el mismo valor en este campo
         else if (jugadas[0][i] == jugadas[1][i]) {
-            if (pu_j1.size() == 0 && pu_j2.size() == 0) {
-                if (valores_j1[valores_j1.size()-1] > valores_j2[valores_j2.size()-1])
-                    return true;
+            // Sabemos que ambos valores son iguales, solo tenemos que comparar uno
+            if (jugadas[0][i] == 0)
+                continue;   // No hay nada que comparar
 
-                else if (valores_j1[valores_j1.size()-1] < valores_j2[valores_j2.size()-1])
-                    return false;
-
-            } else if (pu_j1.size() == 0)
-                return false;
-
-            else if (pu_j2.size() == 0)
+            // Revisar si el valor de alguno es mayor
+            if (mano_j1[i].valor > mano_j2[i].valor)
                 return true;
 
-            if (mano_j1[pu_j1[0]].valor > mano_j2[pu_j2[0]].valor)
-                return true;
-
-            else if (mano_j1[pu_j1[0]].valor < mano_j2[pu_j2[0]].valor)
+            else if (mano_j1[i].valor < mano_j2[i].valor)
                 return false;
 
-            else if (mano_j1[pu_j1[0]].valor == mano_j2[pu_j2[0]].valor) {
-                if (mano_j1[pu_j1[0]].palo < mano_j2[pu_j2[0]].palo)
-                    return true;
+            // Revisar cual palo es mejor
+            if (mano_j1[i].palo < mano_j2[i].palo)
+                return true;
 
-                else if (mano_j1[pu_j1[0]].palo > mano_j2[pu_j2[0]].palo)
-                    return false;
-
-            }
-
+            else if (mano_j1[i].palo > mano_j2[i].palo)
+                return false;
         }
     }
 
-    return true;
+    // Ya que ninguno de los dos jugadores tiene una jugada, se elige un ganador aleatorio
+    int semilla_secundaria = time(NULL);
+
+    srand(semilla_secundaria);
+
+    bool ganador_aleatorio = rand() % 2;
+
+    return ganador_aleatorio;
 }
 
 int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> mano)

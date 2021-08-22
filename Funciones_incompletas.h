@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
+#include <time.h>
 #include "Carta.h"
 
 void ordenar_vector(std::vector<int>& v);
