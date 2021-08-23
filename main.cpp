@@ -77,6 +77,16 @@ int main() {
             }
         }
 
+        if (apuesta_j1 == 0 && apuesta_j2 == 0) {
+            cant_fichas_j1++;
+            cant_fichas_j2++;
+
+            cout << "\nNadie ha ganado esta ronda." << endl << endl;
+
+            continue;
+
+        }
+
         bool gana_j1 = comparar_cartas(mano_j1, mano_j2);
         if (gana_j1){
             if (cant_fichas_j2 < 0 && pozo > 30) {
