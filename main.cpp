@@ -68,23 +68,45 @@ int main() {
 
         while (apuesta_j1 != apuesta_j2){
             if (responde_j1){
-                subir_apuesta(apuesta_j1, apuesta_j2, cant_fichas_j1, pozo);
+                subir_apuesta(apuesta_j1, apuesta_j2, cant_fichas_j1, pozo, 1);
                 responde_j1 = false;
             }
             else {
-                subir_apuesta(apuesta_j2, apuesta_j1, cant_fichas_j2 , pozo);
+                subir_apuesta(apuesta_j2, apuesta_j1, cant_fichas_j2 , pozo, 2);
                 responde_j1 = true;
             }
         }
 
+        if (apuesta_j1 == 0 && apuesta_j2 == 0) {
+            cant_fichas_j1++;
+            cant_fichas_j2++;
+
+            cout << "\nNadie ha ganado esta ronda." << endl << endl;
+
+            continue;
+
+        }
+
         bool gana_j1 = comparar_cartas(mano_j1, mano_j2);
         if (gana_j1){
-            cant_fichas_j1 += pozo;
+            if (cant_fichas_j2 < 0 && pozo > 30) {
+                cant_fichas_j1 = 30;
+                cant_fichas_j2 = 0;     // No soy muy fan de esta linea
+
+            }
+            else
+                cant_fichas_j1 += pozo; // quiero que pasé normalmente
             mostrar_mensaje_ganador_mano(1, cant_fichas_j1);
         }
         else{
-            cant_fichas_j2 += pozo;
-            mostrar_mensaje_ganador_mano(2, cant_fichas_j1);
+            if (cant_fichas_j1 < 0 && pozo > 30) {
+                cant_fichas_j2 = 30;
+                cant_fichas_j1 = 0;
+
+            }
+            else
+                cant_fichas_j2 += pozo;
+            mostrar_mensaje_ganador_mano(2, cant_fichas_j2);
         }
     }
     mostrar_ganador_partida(cant_fichas_j1, cant_fichas_j2);

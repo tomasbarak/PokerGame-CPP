@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+enum class Jugadas { Par = 0, Trio, Escalera, Color, Poker, EscColor };
+
 struct carta{
     int valor;
     int palo;
