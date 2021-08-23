@@ -79,11 +79,23 @@ int main() {
 
         bool gana_j1 = comparar_cartas(mano_j1, mano_j2);
         if (gana_j1){
-            cant_fichas_j1 += pozo;
+            if (cant_fichas_j2 < 0 && pozo > 30) {
+                cant_fichas_j1 = 30;
+                cant_fichas_j2 = 0;     // No soy muy fan de esta linea
+
+            }
+            else
+                cant_fichas_j1 += pozo; // quiero que pasé normalmente
             mostrar_mensaje_ganador_mano(1, cant_fichas_j1);
         }
         else{
-            cant_fichas_j2 += pozo;
+            if (cant_fichas_j1 < 0 && pozo > 30) {
+                cant_fichas_j2 = 30;
+                cant_fichas_j1 = 0;
+
+            }
+            else
+                cant_fichas_j2 += pozo;
             mostrar_mensaje_ganador_mano(2, cant_fichas_j2);
         }
     }

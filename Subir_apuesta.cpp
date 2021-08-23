@@ -4,6 +4,7 @@ using namespace std;
 int subir_apuesta(int &apuesta, int apuesta_contrincante, int &cant_fichas, int &pozo, int jugador){
     bool valor_aceptado = false;
     int fichas_a_apostar;
+    cout << "\nApuesta J1: " << ((jugador == 1) ? apuesta : apuesta_contrincante) << " Apuesta J2: " << ((jugador == 2) ? apuesta : apuesta_contrincante) << endl;
     while (!valor_aceptado)
     {
         cout << "Fichas a apostar (min: " << apuesta_contrincante << "): ";
@@ -33,6 +34,5 @@ int subir_apuesta(int &apuesta, int apuesta_contrincante, int &cant_fichas, int 
 
     pozo += apuesta;
 
-    cout << "Apuesta J1: " << ((jugador == 1) ? apuesta : apuesta_contrincante) << " Apuesta J2: " << ((jugador == 2) ? apuesta : apuesta_contrincante) << endl;
     return fichas_a_apostar;
 }
