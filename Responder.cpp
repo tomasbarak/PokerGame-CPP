@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int responder(std::vector<carta> mano, int apuesta_contrincante, int &cant_fichas, int &pozo){
+int responder(vector<carta> mano, int apuesta_contrincante, int &cant_fichas, int &pozo){
     //COMPLETAR.
     cout << "Tu mano es: ";
     mostrar_cartas(mano);
@@ -15,8 +15,18 @@ int responder(std::vector<carta> mano, int apuesta_contrincante, int &cant_ficha
         cout << "Fichas a apostar (min: " << apuesta_contrincante << "): ";
         cin >> fichas_a_apostar;
 
-        if (fichas_a_apostar > cant_fichas)
+        if (apuesta_contrincante > cant_fichas) {
+            cout << "\nFuiste ALL IN (no tienes suficientes fichas para satisfacer la apuesta)." << endl;
+
+            fichas_a_apostar = apuesta_contrincante;
+            valor_aceptado = true;
+
+        }
+
+        else if (fichas_a_apostar > cant_fichas)
             cout << "\nNo tienes suficientes fichas para apostar ese monto." << endl;
+
+
 
         else if (fichas_a_apostar < apuesta_contrincante)
             cout << "\nDebes apostar por lo menos " << apuesta_contrincante << " fichas." << endl;
