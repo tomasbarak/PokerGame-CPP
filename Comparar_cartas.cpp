@@ -78,18 +78,29 @@ bool comparar_cartas(vector<carta> mano_j1, vector<carta> mano_j2) {
         }
     }
 
-    // Ya que ninguno de los dos jugadores tiene una jugada, se elige un ganador aleatorio
-    int semilla_secundaria = time(NULL);
+    // Los vectores están ordenados, por eso funciona
+    if (valores_j1[valores_j1.size()-1] > valores_j2[valores_j2.size()-1])
+        return true;
 
-    srand(semilla_secundaria);
+    else if (valores_j1[valores_j1.size()-1] < valores_j2[valores_j2.size()-1])
+        return false;
 
-    bool ganador_aleatorio = rand() % 2;
+    else {
+        // Sneaky beaky like
+        int semilla_secundaria = time(NULL);
 
-    return ganador_aleatorio;
+        srand(semilla_secundaria);
+
+        bool ganador = rand() % 2;
+
+        return ganador;
+
+    }
 }
 
 int revisar_jugadas(vector<int>& v, Jugadas j, vector<int>& p, vector<carta> mano)
 {
+    // Dejé de entender este código, así que queda como está
     switch (j)
     {
     case Jugadas::EscColor:
